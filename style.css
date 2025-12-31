@@ -1,0 +1,256 @@
+/* public/css/style.css
+   Minimal, clean UI for vote.html and result.html
+   System font stack, responsive, accessible, and centered layout.
+*/
+
+/* Box sizing and basic reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+               Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f4f6f8; /* subtle page background */
+  color: #0f1720;      /* near-black for good contrast */
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+/* Page container */
+.page {
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff; /* "card" look */
+  border: 1px solid #e6e9ee;
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(16,24,40,0.02);
+}
+
+/* Slightly less vertical spacing for very small screens */
+@media (max-width: 360px) {
+  .page {
+    margin: 20px;
+    padding: 14px;
+    border-radius: 10px;
+  }
+}
+
+/* Page title */
+.page-title {
+  margin: 0 0 18px 0;
+  font-size: 1.25rem; /* larger */
+  font-weight: 600;
+  color: #0b1220;
+}
+
+/* FORM / VOTE */
+.vote-form {
+  display: block;
+  width: 100%;
+}
+
+/* Remove default fieldset styles while keeping semantics */
+.vote-options {
+  margin: 0 0 16px 0;
+  padding: 0;
+  border: none;
+}
+
+/* Visually hidden legend utility */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Option row / card */
+.vote-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid #eaedf2;
+  border-radius: 10px;
+  background: #ffffff;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 150ms ease, box-shadow 150ms ease, transform 100ms ease;
+}
+
+/* Last option margin bottom to separate from button */
+.vote-option:last-of-type {
+  margin-bottom: 14px;
+}
+
+/* Hover state */
+.vote-option:hover {
+  background: #fbfdff;
+  transform: translateY(-1px);
+}
+
+/* When any child gains focus, show clear focus style */
+.vote-option:focus-within {
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.10);
+  outline: none;
+}
+
+/* Radio input visible and comfortably sized */
+.vote-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex: 0 0 auto;
+  accent-color: #2563eb; /* modern browsers */
+}
+
+/* Ensure radio is keyboard-visible on focus */
+.vote-option input[type="radio"]:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+/* Label text */
+.option-label {
+  display: inline-block;
+  font-weight: 500;
+  color: #0b1220;
+  user-select: none;
+}
+
+/* Submit button */
+#vote-submit-btn {
+  width: 100%;
+  display: inline-block;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2563eb;
+  border: 1px solid rgba(37,99,235,0.9);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 120ms ease, transform 80ms ease, box-shadow 120ms ease;
+}
+
+/* Hover / active states for button */
+#vote-submit-btn:hover {
+  background: #1f4fcf;
+}
+
+#vote-submit-btn:active {
+  transform: translateY(1px);
+}
+
+/* Focus-visible for button */
+#vote-submit-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.18);
+}
+
+/* Remove default list style and spacing on results */
+.result-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+  border-top: 1px solid #f1f3f6;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* Each result row */
+.result-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f3f6;
+}
+
+/* Remove last row border for neatness */
+.result-item:last-child {
+  border-bottom: none;
+}
+
+/* Label on the left */
+.result-label {
+  color: #0b1220;
+  font-weight: 500;
+}
+
+/* Count on the right: tabular numbers for stable width */
+.result-count {
+  font-weight: 700;
+  color: #0b1220;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-feature-settings: "tnum" 1;
+  font-feature-settings: "tnum";
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Revote link styled as secondary action */
+.revote-link {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #2563eb;
+  border: 1px solid transparent;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+/* Looks like a subtle secondary button */
+.revote-link:hover {
+  background: #f7fbff;
+  border-color: #e6f0ff;
+  text-decoration: underline;
+}
+
+/* Focus-visible for links */
+.revote-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+  border-radius: 10px;
+}
+
+/* Small helper: ensure interactive elements are keyboard friendly */
+button,
+input,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0.05);
+}
+
+/* Ensure good spacing on small devices */
+@media (max-width: 420px) {
+  .option-label {
+    font-size: 0.95rem;
+  }
+
+  #vote-submit-btn {
+    padding: 11px 14px;
+    font-size: 0.98rem;
+  }
+
+  .result-count {
+    min-width: 30px;
+  }
+}

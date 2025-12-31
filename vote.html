@@ -1,0 +1,37 @@
+<!-- [Task: Create vote.html for Jajang vs Jjamppong voting page] -->
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jajang vs Jjamppong — 투표</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page vote-page">
+    <h1 class="page-title">무엇을 선택하시겠어요?</h1>
+
+    <form id="vote-form" class="vote-form" method="POST" action="/vote">
+      <fieldset class="vote-options">
+        <legend class="sr-only">메뉴 선택</legend>
+
+        <label class="vote-option">
+          <input id="vote-jajang" type="radio" name="vote" value="jajang" required>
+          <span class="option-label"> 짜장면 </span>
+        </label>
+
+        <label class="vote-option">
+          <input id="vote-jjamppong" type="radio" name="vote" value="jjamppong">
+          <span class="option-label"> 짬뽕 </span>
+        </label>
+      </fieldset>
+
+      <button id="vote-submit-btn" type="submit">투표하기</button>
+    </form>
+  </div>
+
+  <script src="/js/vote.js" defer></script>
+</body>
+</html>
+

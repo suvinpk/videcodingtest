@@ -1,0 +1,33 @@
+<!-- [Task: Create result.html for displaying vote counts] -->
+
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>투표 결과</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page result-page">
+    <h1 class="page-title">투표 결과</h1>
+
+    <ul id="result-list" class="result-list">
+      <li class="result-item">
+        <span class="result-label">짜장면</span>
+        <span id="count-jajang" class="result-count">0</span>표
+      </li>
+
+      <li class="result-item">
+        <span class="result-label">짬뽕</span>
+        <span id="count-jjamppong" class="result-count">0</span>표
+      </li>
+    </ul>
+
+    <a id="revote-link" class="revote-link" href="/vote">다시 투표하기</a>
+  </div>
+
+  <script src="/js/result.js" defer></script>
+</body>
+</html>
